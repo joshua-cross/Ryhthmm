@@ -3,7 +3,7 @@ namespace Rythmm.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class addedArtistToDbSet : DbMigration
+    public partial class addedNationalitiesToTable : DbMigration
     {
         public override void Up()
         {
@@ -39,11 +39,8 @@ namespace Rythmm.Migrations
             Sql("INSERT INTO Nationalities (Id, Name) VALUES (30, 'Bulgarian')");
             Sql("INSERT INTO Nationalities (Id, Name) VALUES (31, 'Viatnamese')");
             Sql("INSERT INTO Nationalities (Id, Name) VALUES (32, 'Jamaican')");
-
-
-
         }
-
+        
         public override void Down()
         {
         }

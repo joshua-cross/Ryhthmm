@@ -214,6 +214,22 @@
     <Compile Include="Migrations\201712051519160_addedArtistToDbSet.Designer.cs">
       <DependentUpon>201712051519160_addedArtistToDbSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712051529067_addedNationalitiesToTable.cs" />
+    <Compile Include="Migrations\201712051529067_addedNationalitiesToTable.Designer.cs">
+      <DependentUpon>201712051529067_addedNationalitiesToTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051545192_addingNationalities.cs" />
+    <Compile Include="Migrations\201712051545192_addingNationalities.Designer.cs">
+      <DependentUpon>201712051545192_addingNationalities.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051546556_addingNationalities1.cs" />
+    <Compile Include="Migrations\201712051546556_addingNationalities1.Designer.cs">
+      <DependentUpon>201712051546556_addingNationalities1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712051547440_addingGenres.cs" />
+    <Compile Include="Migrations\201712051547440_addingGenres.Designer.cs">
+      <DependentUpon>201712051547440_addingGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -306,6 +322,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051519160_addedArtistToDbSet.resx">
       <DependentUpon>201712051519160_addedArtistToDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051529067_addedNationalitiesToTable.resx">
+      <DependentUpon>201712051529067_addedNationalitiesToTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051545192_addingNationalities.resx">
+      <DependentUpon>201712051545192_addingNationalities.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051546556_addingNationalities1.resx">
+      <DependentUpon>201712051546556_addingNationalities1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051547440_addingGenres.resx">
+      <DependentUpon>201712051547440_addingGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
