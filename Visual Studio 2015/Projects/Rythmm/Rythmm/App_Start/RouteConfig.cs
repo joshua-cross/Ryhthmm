@@ -13,6 +13,16 @@ namespace Rythmm
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            /*So we can use the [Route] attribute.*/
+            try
+            {
+                routes.MapMvcAttributeRoutes();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

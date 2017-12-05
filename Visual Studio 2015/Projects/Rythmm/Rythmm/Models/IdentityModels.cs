@@ -20,6 +20,10 @@ namespace Rythmm.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Album> Album { get; set; }
+        public DbSet<Song> Song { get; set; }
+        public DbSet<Artist> Artist { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
