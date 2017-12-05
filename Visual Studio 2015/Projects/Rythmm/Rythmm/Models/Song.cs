@@ -31,6 +31,12 @@ namespace Rythmm.Models
         //the id of the genre.
         public byte GenreId { get; set; }
 
+        //the album the song is in.
+        public Album Album { get; set; }
+
+        //the Id of the album.
+        public byte AlbumId { get; set; }
+
         //the date in which the song was released.
         public DateTime Released { get; set; }
 
