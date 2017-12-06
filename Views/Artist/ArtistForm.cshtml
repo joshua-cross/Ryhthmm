@@ -1,0 +1,33 @@
+﻿@model Rythmm.ViewModels.ArtistFormViewModel
+@{
+    ViewBag.Title = "ArtistForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ArtistForm</h2>
+
+@*Form that allows the user to create a new artist; when the save button is pressed we call the save action*@
+@using (Html.BeginForm("Save", "Artist"))
+{
+    @Html.ValidationSummary()
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.Artist.Name)
+        @Html.TextBoxFor(s => s.Artist.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Artist.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(s => s.Artist.NationalityId)
+        @Html.DropDownListFor(s => s.Artist.NationalityId, new SelectList(Model.Nationalities, "Id", "Name"), "Please select nationality", new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Artist.NationalityId)
+    </div>
+
+    @Html.HiddenFor(s => s.Artist.Id)
+
+    @*Adding an antiForgeryToken to make it harder for hackers to inject data to website.*@
+    @Html.AntiForgeryToken()
+
+    @*Adding a button for the form which will call the save action.*@
+    <button type="submit" class="btn btn-primary">Save</button>
+}
