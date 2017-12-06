@@ -41,6 +41,47 @@ namespace Rythmm.Controllers
             return View("ArtistForm", viewModel);
         }
 
+        //must be sent from HttpPost.
+        [HttpPost]
+        //give action an antiforgery token.
+        [ValidateAntiForgeryToken]
+        /*Action that will save the new/edited artist to the database.*/
+        public ActionResult Save(Artist artist)
+        {
+            /*if what the user has entered is not correct, e.g. they have not entered a name
+             then we will return them to the MovieForm.*/
+            if(!ModelState.IsValid)
+            {
+                //re-creating the viewModel for the view.
+                var viewModel = new ArtistFormViewModel
+                {
+                    Artist = artist,
+                    Nationalities = _context.Nationalities.ToList()
+                };
+
+                return View("ArtistForm", viewModel);
+            }
+            //else we're going to add the artist to the database.
+            else
+            {
+                //saving to the local memory.
+                _context.Artist.Add(artist);
+                //trying to save to the database.
+                try
+                {
+                    _context.SaveChanges();
+                }
+                //catching the exception.
+                catch (Exception error)
+                {
+                    return Content(error.ToString());
+                }
+            }
+
+
+            return Content(artist.Name + "has been added to the database.");
+        }
+
         //disposing of the context.
         protected override void Dispose(bool disposing)
         {

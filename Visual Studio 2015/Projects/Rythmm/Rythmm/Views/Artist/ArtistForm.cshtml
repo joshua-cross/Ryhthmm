@@ -22,4 +22,12 @@
         @Html.DropDownListFor(s => s.Artist.NationalityId, new SelectList(Model.Nationalities, "Id", "Name"), "Please select nationality", new { @class = "form-control" })
         @Html.ValidationMessageFor(s => s.Artist.NationalityId)
     </div>
+
+    @Html.HiddenFor(s => s.Artist.Id)
+
+    @*Adding an antiForgeryToken to make it harder for hackers to inject data to website.*@
+    @Html.AntiForgeryToken()
+
+    @*Adding a button for the form which will call the save action.*@
+    <button type="submit" class="btn btn-primary">Save</button>
 }
