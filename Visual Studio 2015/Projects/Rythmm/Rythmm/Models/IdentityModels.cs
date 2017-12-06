@@ -23,6 +23,8 @@ namespace Rythmm.Models
         public DbSet<Album> Album { get; set; }
         public DbSet<Song> Song { get; set; }
         public DbSet<Artist> Artist { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<Nationality> Nationalities { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

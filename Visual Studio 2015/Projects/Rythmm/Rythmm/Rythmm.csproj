@@ -230,6 +230,10 @@
     <Compile Include="Migrations\201712051547440_addingGenres.Designer.cs">
       <DependentUpon>201712051547440_addingGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712051637346_addingGenreAndNationalityDbSet.cs" />
+    <Compile Include="Migrations\201712051637346_addingGenreAndNationalityDbSet.Designer.cs">
+      <DependentUpon>201712051637346_addingGenreAndNationalityDbSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -241,6 +245,7 @@
     <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\SongFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -301,6 +306,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Song\Index.cshtml" />
+    <Content Include="Views\Song\SongForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712051547440_addingGenres.resx">
       <DependentUpon>201712051547440_addingGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712051637346_addingGenreAndNationalityDbSet.resx">
+      <DependentUpon>201712051637346_addingGenreAndNationalityDbSet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

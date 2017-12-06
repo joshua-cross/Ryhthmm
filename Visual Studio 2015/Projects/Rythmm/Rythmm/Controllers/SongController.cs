@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.Entity;
 //NEED THIS FOR _CONTEXT!
 using Rythmm.Models;
+using Rythmm.ViewModels;
 
 namespace Rythmm.Controllers
 {
@@ -34,9 +35,18 @@ namespace Rythmm.Controllers
         public ActionResult New()
         {
             //getting the genres from the database.
-            //var genres = _context.
+            var genres = _context.Genres.ToList();
+            var artists = _context.Artist.ToList();
 
-            return View("SongForm");
+            var viewModel = new SongFormViewModel
+            {
+                Genres = genres,
+                Artists = artists,
+                Song = new Song()
+            };
+            
+            
+            return View("SongForm", viewModel);
         }
 
         //disposing the _context.
