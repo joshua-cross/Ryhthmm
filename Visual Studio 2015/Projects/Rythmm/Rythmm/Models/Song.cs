@@ -23,21 +23,25 @@ namespace Rythmm.Models
         public Artist Artist { get; set; }
 
         //the id of the artist.
+        [Display(Name = "Artist")]
         public byte ArtistId { get; set; }
 
         //the genre of the song.
         public Genre Genre { get; set; }
 
         //the id of the genre.
+        [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
         //the album the song is in.
         public Album Album { get; set; }
 
         //the Id of the album.
+        [Display(Name = "Album")]
         public byte AlbumId { get; set; }
 
         //the date in which the song was released.
+        [Display(Name = "Release date")]
         public DateTime Released { get; set; }
 
         public string Description { get; set; }

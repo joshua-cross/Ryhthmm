@@ -32,7 +32,17 @@
         @*Drop down list that sets the GenreId to the id of the genre that was selected in the drop down. *@
         @Html.DropDownListFor(s => s.Song.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Please select genre.", new { @class = "form-control" })
         @Html.ValidationMessageFor(s => s.Song.GenreId)
-
     </div>
+
+    @*Drop down menu for the genre of the song.*@
+    <div class="form-group">
+        @Html.LabelFor(s => s.Song.ArtistId)
+        @*Drop down list that sets the GenreId to the id of the genre that was selected in the drop down. *@
+        @Html.DropDownListFor(s => s.Song.ArtistId, new SelectList(Model.Artists, "Id", "Name"), "Please select artist.", new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Song.ArtistId)
+    </div>
+
+    //Links to the new action in the artist form when the link is clicked
+    @Html.ActionLink("Artist not here yet? Click here to add them.", "New", "Artist")
 
 }
