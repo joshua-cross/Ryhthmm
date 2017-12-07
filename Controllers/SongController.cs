@@ -60,6 +60,51 @@ namespace Rythmm.Controllers
         {
             var song = viewModel.Song;
 
+            //getting all the albums from the database.
+            var albumsDB = _context.Album.ToList();
+
+            //getting all the artists from the database.
+            var artistsDB = _context.Artist.ToList();
+
+            //boolean that checks if the album is in the array or not.
+            bool newAlbum = true;
+
+            /*
+            //looping through each of the albums in the array.
+            foreach(Album album in albums)
+            {
+                //checking if the name of the album in the array is the same as the name that may have been entered.
+                if(album.Name == song.Album.Name)
+                {
+
+                }
+            }
+            */
+
+            //if the album Id is 0 that means nothing was selected from the drop down menu.
+            if(viewModel.Song.AlbumId == 0)
+            {
+                if(song.Album.Name == null)
+                {
+                    Console.WriteLine("Please enter a value");
+                } else
+                {
+                    //if the name of the 
+                    if(song.ArtistId != null)
+                    {
+
+                    }
+                    Console.WriteLine("The new album name was: " + song.Album.Name);
+                }
+            }
+            //else something was selected from the drop down meny so we set the album name to be the Id of what was selected.
+            else
+            {
+                Console.WriteLine("The album " + albumsDB[song.AlbumId] + " already exists.");
+            }
+
+            
+
             if(!ModelState.IsValid)
             {
                 var artists = _context.Artist.ToList();
