@@ -45,6 +45,30 @@
     //Links to the new action in the artist form when the link is clicked
     @Html.ActionLink("Artist not here yet? Click here to add them.", "New", "Artist")
 
+    @*Drop down menu for the album.*@
+    <div class="form-group">
+        @Html.LabelFor(s => s.Song.AlbumId)
+        @Html.DropDownListFor(s => s.Song.AlbumId, new SelectList(Model.Albums, "Id", "Name"), "Please select album", new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Song.AlbumId)
+    </div>
 
+    <p>If your favourite album is not available please enter below.</p>
 
+    @*Text box for the album in case the album does not already exist in the database.*@
+    <div class="form-group">
+        @*text box for the name of the songs album.*@
+        @Html.LabelFor(s=> s.Song.Album.Name)
+        @Html.TextBoxFor(s => s.Song.Album.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(s => s.Song.Album.Name)
+        @*Hidden field for the albums Id.*@
+        @Html.HiddenFor(s => s.Song.Album.Id)
+    </div>
+
+    @Html.HiddenFor(s => s.Song.Id)
+
+    @Html.AntiForgeryToken()
+
+    <button type ="submit" class="btn btn-primary">Save</button>
+
+    
 }

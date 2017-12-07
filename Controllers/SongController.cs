@@ -37,16 +37,47 @@ namespace Rythmm.Controllers
             //getting the genres from the database.
             var genres = _context.Genres.ToList();
             var artists = _context.Artist.ToList();
+            var albums = _context.Album.ToList();
 
             var viewModel = new SongFormViewModel
             {
                 Genres = genres,
                 Artists = artists,
+                Albums = albums,
                 Song = new Song()
             };
             
             
             return View("SongForm", viewModel);
+        }
+
+        //only be able to access to the save feature with the save button.
+        [HttpPost]
+        //implementing the anti-forgery
+        [ValidateAntiForgeryToken]
+        //Save fucntion that saves what was entered in a form to the database.
+        public ActionResult Save(SongFormViewModel viewModel)
+        {
+            var song = viewModel.Song;
+
+            if(!ModelState.IsValid)
+            {
+                var artists = _context.Artist.ToList();
+                var albums = _context.Album.ToList();
+                var genres = _context.Genres.ToList();
+
+                var thisViewModel = new SongFormViewModel
+                {
+                    Song = song,
+                    Albums = albums,
+                    Genres = genres,
+                    Artists = artists
+                };
+
+                return View("SongForm", thisViewModel);
+            }
+
+            return Content("Added.");
         }
 
         //disposing the _context.

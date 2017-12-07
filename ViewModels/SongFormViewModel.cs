@@ -14,6 +14,7 @@ namespace Rythmm.ViewModels
         //list of artists which will be used in the drop down menu.
         public IEnumerable<Artist> Artists { get; set; }
 
+        public IEnumerable<Album> Albums { get; set; }
         //the song.
         public Song Song { get; set; }
     }
