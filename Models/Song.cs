@@ -17,14 +17,14 @@ namespace Rythmm.Models
         public string Name { get; set; }
 
         //will be the primary key
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         //The artist of the song.
         public Artist Artist { get; set; }
 
         //the id of the artist.
         [Display(Name = "Artist")]
-        public byte ArtistId { get; set; }
+        public int ArtistId { get; set; }
 
         //the genre of the song.
         public Genre Genre { get; set; }
@@ -38,7 +38,7 @@ namespace Rythmm.Models
 
         //the Id of the album.
         [Display(Name = "Album")]
-        public byte AlbumId { get; set; }
+        public int? AlbumId { get; set; }
 
         //the date in which the song was released.
         [Display(Name = "Release date")]

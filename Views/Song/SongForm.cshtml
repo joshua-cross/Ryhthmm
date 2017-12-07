@@ -60,8 +60,6 @@
         @Html.LabelFor(s=> s.Song.Album.Name)
         @Html.TextBoxFor(s => s.Song.Album.Name, new { @class = "form-control" })
         @Html.ValidationMessageFor(s => s.Song.Album.Name)
-        @*Hidden field for the albums Id.*@
-        @Html.HiddenFor(s => s.Song.Album.Id)
     </div>
 
     @Html.HiddenFor(s => s.Song.Id)

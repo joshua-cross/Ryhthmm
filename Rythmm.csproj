@@ -227,6 +227,22 @@
     <Compile Include="Migrations\201712071419389_repopulating.Designer.cs">
       <DependentUpon>201712071419389_repopulating.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712071449372_ChangingArtistAndAlbumIdsToIntegers.cs" />
+    <Compile Include="Migrations\201712071449372_ChangingArtistAndAlbumIdsToIntegers.Designer.cs">
+      <DependentUpon>201712071449372_ChangingArtistAndAlbumIdsToIntegers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712071506092_MadeTheIdAndAlbumIdNullableInSong.cs" />
+    <Compile Include="Migrations\201712071506092_MadeTheIdAndAlbumIdNullableInSong.Designer.cs">
+      <DependentUpon>201712071506092_MadeTheIdAndAlbumIdNullableInSong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712071521162_updating.cs" />
+    <Compile Include="Migrations\201712071521162_updating.Designer.cs">
+      <DependentUpon>201712071521162_updating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712071529395_addedNullableToArtistId.cs" />
+    <Compile Include="Migrations\201712071529395_addedNullableToArtistId.Designer.cs">
+      <DependentUpon>201712071529395_addedNullableToArtistId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -332,6 +348,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712071419389_repopulating.resx">
       <DependentUpon>201712071419389_repopulating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071449372_ChangingArtistAndAlbumIdsToIntegers.resx">
+      <DependentUpon>201712071449372_ChangingArtistAndAlbumIdsToIntegers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071506092_MadeTheIdAndAlbumIdNullableInSong.resx">
+      <DependentUpon>201712071506092_MadeTheIdAndAlbumIdNullableInSong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071521162_updating.resx">
+      <DependentUpon>201712071521162_updating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712071529395_addedNullableToArtistId.resx">
+      <DependentUpon>201712071529395_addedNullableToArtistId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -81,7 +81,7 @@ namespace Rythmm.Controllers
             }
 
             //if the album Id is 0 that means nothing was selected from the drop down menu.
-            if (viewModel.Song.AlbumId == 0)
+            if (viewModel.Song.AlbumId == 0 || viewModel.Song.AlbumId == null)
             {
                 if (song.Album.Name == null)
                 {
@@ -134,8 +134,8 @@ namespace Rythmm.Controllers
                         */
 
                         //setting the genreId of the song to be that of what was just created.
-                        int insertedId = theAlbum.Id;
-                        song.GenreId = insertedId;
+                        int insertedId = albumId;
+                        song.AlbumId = insertedId;
                     }
 
                     Console.WriteLine("The new album name was: " + song.Album.Name);
@@ -145,8 +145,8 @@ namespace Rythmm.Controllers
             else
             {
                 //setting the album name to be the value of the existing album.
-                song.Album.Name = albumsDB[song.AlbumId - 1].Name;
-                Console.WriteLine("The album " + albumsDB[song.AlbumId - 1] + " already exists.");
+                song.Album.Name = albumsDB[song.AlbumId.Value - 1].Name;
+                Console.WriteLine("The album " + albumsDB[song.AlbumId.Value - 1] + " already exists.");
             }
 
 
