@@ -85,3 +85,5 @@ c:\users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Ryth
 c:\users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.ChangedBytesToIntInSongAndAlbum.resources
 c:\users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.populatingNationalitiesAndGenres.resources
 C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.changedAlbumIdToIntFromByte.resources
+C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.addedArtistIdToAlbumModel.resources
+C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.repopulating.resources

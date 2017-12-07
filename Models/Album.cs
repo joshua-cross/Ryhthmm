@@ -21,5 +21,8 @@ namespace Rythmm.Models
 
         //the artist which released the album.
         public Artist Artist { get; set; }
+
+        //The id of the artist
+        public int ArtistId { get; set;  }
     }
 }

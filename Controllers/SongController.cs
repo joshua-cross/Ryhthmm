@@ -7,6 +7,8 @@ using System.Data.Entity;
 //NEED THIS FOR _CONTEXT!
 using Rythmm.Models;
 using Rythmm.ViewModels;
+//for the sqlstatement.
+using System.Data.SqlClient;
 
 namespace Rythmm.Controllers
 {
@@ -75,13 +77,81 @@ namespace Rythmm.Controllers
             //looping through each of the albums in the array.
             foreach(Album album in albumsDB)
             {
-                lastAlbumId = lastAlbumId + 1;
+                lastAlbumId = album.Id;
             }
-            
 
-            
+            //if the album Id is 0 that means nothing was selected from the drop down menu.
+            if (viewModel.Song.AlbumId == 0)
+            {
+                if (song.Album.Name == null)
+                {
+                    Console.WriteLine("Please enter a value");
+                }
+                else
+                {
+                    Artist albumArtist;
+                    int albumId = lastAlbumId;
+                    Album theAlbum;
 
-            if(!ModelState.IsValid)
+                    //if the last album Id is 0 then theres no need to add 1.
+                    if (lastAlbumId != 0)
+                        albumId = albumId + 1;
+
+                    //if the user has chosen an artist from the list.
+                    if (song.ArtistId != 0)
+                    {
+                        albumArtist = artistsDB[song.ArtistId - 1];
+                        //creating a new album with the information we have.
+                        theAlbum = new Album
+                        {
+                            Name = song.Album.Name,
+                            Id = albumId,
+                            ArtistId = song.ArtistId
+                        };
+
+                        //setting the album of the song to be the one we have just created.
+                        song.Album = theAlbum;
+
+                        string sql = "INSERT INTO Albums VALUES(@Id, @Name, @ArtistId)";
+
+                        _context.Database.ExecuteSqlCommand(sql,
+                            new SqlParameter("Id", albumId),
+                            new SqlParameter("Name", song.Album.Name),
+                            new SqlParameter("ArtistId", song.ArtistId)
+                         );
+
+                        //_context.Album.Add(theAlbum);
+                        //saving the album to the database.
+                        /*
+                        try
+                        {
+                            _context.SaveChanges();
+                        }
+                        catch (Exception e)
+                        {
+                            return Content(e.ToString());
+                        }
+                        */
+
+                        //setting the genreId of the song to be that of what was just created.
+                        int insertedId = theAlbum.Id;
+                        song.GenreId = insertedId;
+                    }
+
+                    Console.WriteLine("The new album name was: " + song.Album.Name);
+                }
+            }
+            //else something was selected from the drop down meny so we set the album name to be the Id of what was selected.
+            else
+            {
+                //setting the album name to be the value of the existing album.
+                song.Album.Name = albumsDB[song.AlbumId - 1].Name;
+                Console.WriteLine("The album " + albumsDB[song.AlbumId - 1] + " already exists.");
+            }
+
+
+
+            if (!ModelState.IsValid)
             {
                 var artists = _context.Artist.ToList();
                 var albums = _context.Album.ToList();
@@ -98,68 +168,10 @@ namespace Rythmm.Controllers
                 return View("SongForm", thisViewModel);
             }
 
+            
             //if the song is a new song.
-            if(song.Id == 0)
+            if (song.Id == 0)
             {
-                //if the album Id is 0 that means nothing was selected from the drop down menu.
-                if (viewModel.Song.AlbumId == 0)
-                {
-                    if (song.Album.Name == null)
-                    {
-                        Console.WriteLine("Please enter a value");
-                    }
-                    else
-                    {
-                        Artist albumArtist;
-                        int albumId = lastAlbumId;
-                        Album theAlbum;
-
-                        //if the last album Id is 0 then theres no need to add 1.
-                        if (lastAlbumId != 0)
-                            albumId = albumId + 1;
-
-                        //if the user has chosen an artist from the list.
-                        if (song.ArtistId != 0)
-                        {
-                            albumArtist = artistsDB[song.ArtistId];
-                            //creating a new album with the information we have.
-                            theAlbum = new Album
-                            {
-                                Name = song.Album.Name,
-                                Id = albumId,
-                                Artist = albumArtist
-                            };
-
-                            //setting the album of the song to be the one we have just created.
-                            song.Album = theAlbum;
-
-                            _context.Album.Add(theAlbum);
-                            //saving the album to the database.
-                            try
-                            {
-                                _context.SaveChanges();
-                            }
-                            catch (Exception e)
-                            {
-                                return Content(e.ToString());
-                            }
-
-                            //setting the genreId of the song to be that of what was just created.
-                            int insertedId = theAlbum.Id;
-                            song.GenreId = insertedId;
-                        }
-
-                        Console.WriteLine("The new album name was: " + song.Album.Name);
-                    }
-                }
-                //else something was selected from the drop down meny so we set the album name to be the Id of what was selected.
-                else
-                {
-                    //setting the album name to be the value of the existing album.
-                    song.Album.Name = albumsDB[song.AlbumId].Name;
-                    Console.WriteLine("The album " + albumsDB[song.AlbumId] + " already exists.");
-                }
-
                 _context.Song.Add(song);
             }
             //else we are editing a song that already exists.
