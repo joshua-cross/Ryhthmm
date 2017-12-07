@@ -13,14 +13,14 @@
     @Html.ValidationSummary()
 
     @*text box for the name of the song*@
-    <div vlass ="form-group">
+    <div class ="form-group">
         @Html.LabelFor(s => s.Song.Name)
         @Html.TextBoxFor(s => s.Song.Name, new { @class = "form-control"})
         @Html.ValidationMessageFor(s => s.Song.Name)
     </div>
 
     @*text box for the name of the release date of the song*@
-    <div vlass="form-group">
+    <div class="form-group">
         @Html.LabelFor(s => s.Song.Released)
         @Html.TextBoxFor(s => s.Song.Released, "{0: d MMM yyyy}", new { @class = "form-control" })
         @Html.ValidationMessageFor(s => s.Song.Released)
@@ -60,6 +60,12 @@
         @Html.LabelFor(s=> s.Song.Album.Name)
         @Html.TextBoxFor(s => s.Song.Album.Name, new { @class = "form-control" })
         @Html.ValidationMessageFor(s => s.Song.Album.Name)
+    </div>
+
+    @*text box for the name of the song*@
+    <div class="form-group">
+        @Html.LabelFor(s => s.Song.Description)
+        @Html.TextBoxFor(s => s.Song.Description, new { @class = "form-control" })
     </div>
 
     @Html.HiddenFor(s => s.Song.Id)

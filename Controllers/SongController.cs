@@ -62,6 +62,9 @@ namespace Rythmm.Controllers
         {
             var song = viewModel.Song;
 
+            //getting all the songs from the database.
+            var songs = _context.Song.ToList();
+
             //getting all the albums from the database.
             var albumsDB = _context.Album.ToList();
 
@@ -74,11 +77,15 @@ namespace Rythmm.Controllers
             //the last Id in the album array.
             int lastAlbumId = 0;
 
+            //the last Id in the album array.
+            int lastSongId = 0;
+
             //looping through each of the albums in the array.
             foreach(Album album in albumsDB)
             {
                 lastAlbumId = album.Id;
             }
+
 
             //if the album Id is 0 that means nothing was selected from the drop down menu.
             if (viewModel.Song.AlbumId == 0 || viewModel.Song.AlbumId == null)
@@ -170,9 +177,16 @@ namespace Rythmm.Controllers
 
             
             //if the song is a new song.
-            if (song.Id == 0)
+            if (song.Id == 0 || song.Id == null)
             {
-                _context.Song.Add(song);
+
+                foreach (Song theSong in songs)
+                {
+                    lastSongId = theSong.Id.Value;
+                }
+
+                //_context.Song.Add(song);
+                song.Id = lastSongId + 1;
             }
             //else we are editing a song that already exists.
             else
@@ -182,6 +196,16 @@ namespace Rythmm.Controllers
 
             try
             {
+                string sql = "INSERT INTO Songs VALUES (@Id, @Name, @GenreId, @Released, @Description, @ArtistId, @AlbumId)";
+                _context.Database.ExecuteSqlCommand(sql,
+                    new SqlParameter("Id", song.Id),
+                    new SqlParameter("Name", song.Name),
+                    new SqlParameter("GenreId", song.GenreId),
+                    new SqlParameter("Released", song.Released),
+                    new SqlParameter("Description", song.Description),
+                    new SqlParameter("ArtistId", song.ArtistId),
+                    new SqlParameter("AlbumId", song.AlbumId)
+                    );
                 _context.SaveChanges();
             } catch (Exception e)
             {
