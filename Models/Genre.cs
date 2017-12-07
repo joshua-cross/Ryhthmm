@@ -9,7 +9,7 @@ namespace Rythmm.Models
     public class Genre
     {
         //primary key for the Id.
-        public byte Id { get; set; }
+        public int Id { get; set; }
         //the name of the genre is required.
         [Required]
         //the maximum length of the genre is 50.

@@ -31,7 +31,7 @@ namespace Rythmm.Models
 
         //the id of the genre.
         [Display(Name = "Genre")]
-        public byte GenreId { get; set; }
+        public int GenreId { get; set; }
 
         //the album the song is in.
         public Album Album { get; set; }
