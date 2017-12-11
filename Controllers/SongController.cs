@@ -30,8 +30,22 @@ namespace Rythmm.Controllers
         public ActionResult Index()
         {
             var songs = _context.Song.ToList();
+            var genres = _context.Genres.ToList();
+            var artists = _context.Artist.ToList();
+            var albums = _context.Album.ToList();
 
-            return View(songs);
+
+            //creating a songViewModel which passes through the songs, the genres, the artists, and the albums.
+            var viewController = new SongViewModel
+            {
+                Songs = songs,
+                Genres = genres,
+                Artists = artists,
+                Albums = albums
+            };
+
+
+            return View(viewController);
         }
 
         public ActionResult New()

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Rythmm.Models.Song>
+﻿@using Rythmm.Models;
+@model Rythmm.ViewModels.SongViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,12 +12,39 @@
 </div>
 
 @*Checking if there are any songs currently in the database.*@
-@if(Model.Count() == 0)
+@if (Model.Songs.Count() == 0)
 {
     <p>There are currently no songs :(</p>
 }
 @*else there are currently songs, so we're going to print them to the screen.*@
-else {
+else
+{
+    <table>
 
+        <tr>
+
+            <th>Song</th>
+            <th>Album</th>
+            <th>Artist</th>
+            <th>Release Date</th>
+
+        </tr>
+        
+
+    @*Looping through each available song in the IEnumerable.*@
+    @foreach (Song song in Model.Songs)
+    {
+        <tr>
+
+            <th>@song.Name</th>
+            <th>@Model.Albums.ElementAt(song.AlbumId.Value - 1).Name</th>
+            <th>@Model.Artists.ElementAt(song.ArtistId).Name</th> 
+            <th>@song.Released.ToShortDateString()</th>
+        </tr>
+        
+        
+    }
+
+    </table>
 
 }
