@@ -27,6 +27,7 @@ else
             <th>Album</th>
             <th>Artist</th>
             <th>Release Date</th>
+            <th>Description</th>
 
         </tr>
         
@@ -38,8 +39,9 @@ else
 
             <th>@song.Name</th>
             <th>@Model.Albums.ElementAt(song.AlbumId.Value - 1).Name</th>
-            <th>@Model.Artists.ElementAt(song.ArtistId).Name</th> 
+            <th>@Model.Artists.ElementAt(song.ArtistId - 1).Name</th> 
             <th>@song.Released.ToShortDateString()</th>
+            <th>@song.Description</th>
         </tr>
         
         

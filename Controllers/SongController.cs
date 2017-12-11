@@ -79,6 +79,11 @@ namespace Rythmm.Controllers
             //getting all the songs from the database.
             var songs = _context.Song.ToList();
 
+            //getting the genres from the database.
+            var genres = _context.Genres.ToList();
+            var artists = _context.Artist.ToList();
+            var albums = _context.Album.ToList();
+
             //getting all the albums from the database.
             var albumsDB = _context.Album.ToList();
 
@@ -174,9 +179,7 @@ namespace Rythmm.Controllers
 
             if (!ModelState.IsValid)
             {
-                var artists = _context.Artist.ToList();
-                var albums = _context.Album.ToList();
-                var genres = _context.Genres.ToList();
+
 
                 var thisViewModel = new SongFormViewModel
                 {
@@ -226,7 +229,16 @@ namespace Rythmm.Controllers
                 return Content(e.ToString());
             }
 
-            return Content("Added.");
+            //also adding the list of songs here so we can send the user back to the songs index page.
+            var songViewModel = new SongViewModel
+            {
+                Songs = songs,
+                Genres = genres,
+                Albums = albums,
+                Artists = artists
+            };
+
+            return View("Index", songViewModel);
         }
 
         //disposing the _context.
