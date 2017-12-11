@@ -249,6 +249,7 @@
     <Compile Include="Models\Artist.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IdOrNameMustBeSelected.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Nationality.cs" />
     <Compile Include="Models\Song.cs" />

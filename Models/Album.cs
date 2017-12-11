@@ -13,7 +13,7 @@ namespace Rythmm.Models
         public int Id { get; set; }
 
         //the name of the album is required.
-        [Required]
+        //[Required]
         //the name of the album must be less than 100.
         [StringLength(100)]
         //the name of the album.
@@ -24,5 +24,8 @@ namespace Rythmm.Models
 
         //The id of the artist
         public int ArtistId { get; set;  }
+
+        //setting up a readonly integer for the unknow variable in the database.
+        public static readonly byte Unknown = 0;
     }
 }

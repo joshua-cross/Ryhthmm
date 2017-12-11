@@ -38,6 +38,7 @@ namespace Rythmm.Models
 
         //the Id of the album.
         [Display(Name = "Album")]
+        [IdOrNameMustBeSelected]
         public int? AlbumId { get; set; }
 
         //the date in which the song was released.
