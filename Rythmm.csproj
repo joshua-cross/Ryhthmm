@@ -243,6 +243,10 @@
     <Compile Include="Migrations\201712071529395_addedNullableToArtistId.Designer.cs">
       <DependentUpon>201712071529395_addedNullableToArtistId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712111111459_removedRequirmentFromAlbumName.cs" />
+    <Compile Include="Migrations\201712111111459_removedRequirmentFromAlbumName.Designer.cs">
+      <DependentUpon>201712111111459_removedRequirmentFromAlbumName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -361,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712071529395_addedNullableToArtistId.resx">
       <DependentUpon>201712071529395_addedNullableToArtistId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712111111459_removedRequirmentFromAlbumName.resx">
+      <DependentUpon>201712111111459_removedRequirmentFromAlbumName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

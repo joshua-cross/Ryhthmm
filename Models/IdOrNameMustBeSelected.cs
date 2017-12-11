@@ -16,21 +16,16 @@ namespace Rythmm.Models
         {
             var song = (Song)validationContext.ObjectInstance;
 
-            if(song.AlbumId == null && song.Album.Name == null)
-            {
-                return new ValidationResult("Id is null");
-            }
-
             /*if the Id of the song (from the drop down menu) is 0 (unknown) and the
              name the user has entered is null or empty then the user has not entered
              an album so we should return the user an error telling them to fill
              one of the fields out.*/
-            if((song.AlbumId == Album.Unknown || song.AlbumId == null) &&
-                (song.Album.Name.Equals("") || song.Album.Name == null))
+            if (song.AlbumId == null && song.Album.Name == null)
             {
-                return new ValidationResult("Please choose an album from either the drop down menu or " 
-                    + "create a new album");
+                return new ValidationResult("Please choose an album from either the drop down menu or "
+                                    + "create a new album");
             }
+
             /*Else the user has created an album so we should return a success.*/
             else
             {
