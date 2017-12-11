@@ -21,7 +21,7 @@ else
 {
     <table>
 
-        <tr>
+        <tr class="tableTitles">
 
             <th>Song</th>
             <th>Album</th>
@@ -34,7 +34,7 @@ else
     @*Looping through each available song in the IEnumerable.*@
     @foreach (Song song in Model.Songs)
     {
-        <tr>
+        <tr class="tableBody">
 
             <th>@song.Name</th>
             <th>@Model.Albums.ElementAt(song.AlbumId.Value - 1).Name</th>

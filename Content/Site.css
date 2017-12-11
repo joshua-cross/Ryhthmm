@@ -1,4 +1,23 @@
-﻿body {
+﻿table {
+    width: 100%;
+}
+
+.tableTitles {
+    background: #ff6961;
+    color: white;
+    padding: 25px;
+}
+
+th {
+    padding:20px;
+}
+
+.tableBody {
+    color: white;
+    background: #2f2f2f;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
