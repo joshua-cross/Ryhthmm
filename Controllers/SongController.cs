@@ -48,6 +48,35 @@ namespace Rythmm.Controllers
             return View(viewController);
         }
 
+        [Route("Song/Edit/{id}")]
+        /*Action that displays the information about the chosen song.*/
+        public ActionResult Edit(int id)
+        {
+            var song = _context.Song.SingleOrDefault(c => c.Id == id);
+
+            //if the movie does not exist then we will display the user with a 404.
+            if(song == null)
+            {
+                return HttpNotFound();
+            }
+
+            //getting the albums, artists and the genres from the database.
+            var genres = _context.Genres.ToList();
+            var albums = _context.Album.ToList();
+            var artists = _context.Artist.ToList();
+
+            //creating a view model for this song.
+            var viewModel = new SelectedSongViewModel
+            {
+                Song = song,
+                Genres = genres,
+                Artists = artists,
+                Albums = albums
+            };
+
+            return View("EditSong", viewModel);
+        }
+
         public ActionResult New()
         {
             //getting the genres from the database.

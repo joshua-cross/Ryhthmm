@@ -38,7 +38,7 @@ else
     {
         <tr class="tableBody">
 
-            <th>@song.Name</th>
+            <th>@Html.ActionLink(@song.Name, "Edit", "Song", new { id = @song.Id }, null)</th>
             <th>@Model.Genres.ElementAt(song.GenreId - 1).Name</th>
             <th>@Model.Albums.ElementAt(song.AlbumId.Value - 1).Name</th>
             <th>@Model.Artists.ElementAt(song.ArtistId - 1).Name</th> 

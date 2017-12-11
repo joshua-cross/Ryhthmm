@@ -1,0 +1,12 @@
+﻿@model Rythmm.ViewModels.SelectedSongViewModel
+@{
+    ViewBag.Title = "EditSong";
+}
+
+<h2>@Model.Song.Name</h2>
+<p>Genre: @Model.Genres.ElementAt(@Model.Song.GenreId - 1).Name</p>
+<p>Released: @Model.Song.Released.ToShortDateString()</p>
+<p>Description: @Model.Song.Description</p>
+<p>Album: @Model.Albums.ElementAt(@Model.Song.AlbumId.Value - 1).Name</p>
+<p>Arist: @Model.Artists.ElementAt(@Model.Song.ArtistId - 1).Name</p>
+
