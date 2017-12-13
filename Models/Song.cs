@@ -14,6 +14,8 @@ namespace Rythmm.Models
         //the maximum length this string can be is 255 characters.
         [StringLength(255)]
         //the name of the song
+        //cannot contain / or a '
+        [NoSpecialCharacters]
         public string Name { get; set; }
 
         //will be the primary key

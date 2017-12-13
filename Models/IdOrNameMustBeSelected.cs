@@ -29,6 +29,15 @@ namespace Rythmm.Models
             /*Else the user has created an album so we should return a success.*/
             else
             {
+                if(song.AlbumId == null)
+                {
+                    song.AlbumId = 0;
+                }
+
+                if(song.Album.Name == null)
+                {
+                    song.Album.Name = "";
+                }
                 /*If the user has entered something in both the drop-down menu, and the text box
                  then we will return an error telling the user to just use one or the other.*/
                 if((song.AlbumId.Value != 0 && song.AlbumId != null) &&
