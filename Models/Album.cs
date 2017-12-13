@@ -27,5 +27,8 @@ namespace Rythmm.Models
 
         //setting up a readonly integer for the unknow variable in the database.
         public static readonly byte Unknown = 0;
+
+        //a string which will contain all the songs in a album, will be seriaslised / delserialized.
+        public string Songs { get; set; }
     }
 }

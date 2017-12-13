@@ -247,6 +247,18 @@
     <Compile Include="Migrations\201712111111459_removedRequirmentFromAlbumName.Designer.cs">
       <DependentUpon>201712111111459_removedRequirmentFromAlbumName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712131240580_addedListOfSongsToAlbum.cs" />
+    <Compile Include="Migrations\201712131240580_addedListOfSongsToAlbum.Designer.cs">
+      <DependentUpon>201712131240580_addedListOfSongsToAlbum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712131243313_addedListOfSongIdsToDatabase.cs" />
+    <Compile Include="Migrations\201712131243313_addedListOfSongIdsToDatabase.Designer.cs">
+      <DependentUpon>201712131243313_addedListOfSongIdsToDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712131253411_addedStringForSongs.cs" />
+    <Compile Include="Migrations\201712131253411_addedStringForSongs.Designer.cs">
+      <DependentUpon>201712131253411_addedStringForSongs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
@@ -371,6 +383,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712111111459_removedRequirmentFromAlbumName.resx">
       <DependentUpon>201712111111459_removedRequirmentFromAlbumName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712131240580_addedListOfSongsToAlbum.resx">
+      <DependentUpon>201712131240580_addedListOfSongsToAlbum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712131243313_addedListOfSongIdsToDatabase.resx">
+      <DependentUpon>201712131243313_addedListOfSongIdsToDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712131253411_addedStringForSongs.resx">
+      <DependentUpon>201712131253411_addedStringForSongs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -167,13 +167,19 @@ namespace Rythmm.Controllers
                         //setting the album of the song to be the one we have just created.
                         song.Album = theAlbum;
 
-                        string sql = "INSERT INTO Albums VALUES(@Id, @Name, @ArtistId)";
+
+
+
+                        string sql = "INSERT INTO Albums VALUES(@Id, @Name, @ArtistId, @Songs)";
 
                         _context.Database.ExecuteSqlCommand(sql,
                             new SqlParameter("Id", albumId),
                             new SqlParameter("Name", song.Album.Name),
-                            new SqlParameter("ArtistId", song.ArtistId)
+                            new SqlParameter("ArtistId", song.ArtistId),
+                            new SqlParameter("Songs", song.Name + "/")
                          );
+
+                        
 
                         //_context.Album.Add(theAlbum);
                         //saving the album to the database.
@@ -192,6 +198,11 @@ namespace Rythmm.Controllers
                         int insertedId = albumId;
                         song.AlbumId = insertedId;
                     }
+                    /*Else this is an already existing album and we want to */
+                    else
+                    {
+
+                    }
 
                     Console.WriteLine("The new album name was: " + song.Album.Name);
                 }
@@ -202,7 +213,58 @@ namespace Rythmm.Controllers
                 //setting the album name to be the value of the existing album.
                 song.Album.Name = albumsDB[song.AlbumId.Value - 1].Name;
                 Console.WriteLine("The album " + albumsDB[song.AlbumId.Value - 1] + " already exists.");
+
+                //getting the selected album from the database.
+                Album currAlbum = _context.Album.SingleOrDefault(a => a.Id == song.AlbumId.Value - 1);
+                
+                //the new string we're going to insert into the songs of the album.
+                string currSongs;
+
+                //ensuring the selected album is correct and not null.
+                if (currAlbum != null)
+                {
+                    //setting songs to be what is in the database currently.
+                    currSongs = currAlbum.Songs;
+                    if(currSongs == null)
+                    {
+                        currSongs = "";
+                    }
+                    //checking if the string we just created is empty or not.
+                    if (currSongs.Equals("") || currSongs == null)
+                    {
+                        //then we're going to set the initial string the / is the character we will use to
+                        //start a new song.
+                        currSongs = song.Name + "/";
+                    }
+                    //else there are already songs in the database so we will ammend the current songs.
+                    else
+                    {
+                        currSongs += song.Name + "/";
+                    }
+
+                    //sql code to update the songs.
+                    string thisSql = "UPDATE Albums" +
+                                     " SET Songs = '" + currSongs +
+                                     "' WHERE Id = " + (song.AlbumId.Value - 1);
+
+                    //updating the database.
+                    _context.Database.ExecuteSqlCommand(thisSql); 
+                } else
+                {
+                    currSongs = "Error";
+                }
+
+                //TODO: Make it so users cannot enter special characters e.g. ' and / as this will break the code.
+
+                //we're going to add a song to the album we've just selected.
+                string sql = "INSERT INTO Albums VALUES(@Songs)";
+
+                //_context.Database.ExecuteSqlCommand(sql);
+                
+
             }
+
+
 
 
 

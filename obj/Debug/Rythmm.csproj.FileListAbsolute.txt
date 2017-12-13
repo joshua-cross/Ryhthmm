@@ -92,3 +92,6 @@ C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Ryth
 C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.updating.resources
 C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.addedNullableToArtistId.resources
 C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.removedRequirmentFromAlbumName.resources
+C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.addedListOfSongsToAlbum.resources
+C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.addedListOfSongIdsToDatabase.resources
+C:\Users\josh\documents\visual studio 2015\Projects\Rythmm\Rythmm\obj\Debug\Rythmm.Migrations.addedStringForSongs.resources
