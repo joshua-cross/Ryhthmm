@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Rythmm.Models.Album>
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Albums</h2>
+<table>
+    <tr class="tableTitles">
+        <th>Name</th>
+        @*<th>Artist</th>*@
+    </tr>
+@foreach(var album in Model)
+{
+    <tr class="tableBody">
+        <th>@album.Name</th>
+        @*<th>@album.Artist.Name</th>*@
+    </tr>
+}
+</table>
