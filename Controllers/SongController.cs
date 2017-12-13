@@ -215,7 +215,7 @@ namespace Rythmm.Controllers
                 Console.WriteLine("The album " + albumsDB[song.AlbumId.Value - 1] + " already exists.");
 
                 //getting the selected album from the database.
-                Album currAlbum = _context.Album.SingleOrDefault(a => a.Id == song.AlbumId.Value - 1);
+                Album currAlbum = _context.Album.SingleOrDefault(a => a.Id == song.AlbumId.Value);
                 
                 //the new string we're going to insert into the songs of the album.
                 string currSongs;
@@ -245,7 +245,7 @@ namespace Rythmm.Controllers
                     //sql code to update the songs.
                     string thisSql = "UPDATE Albums" +
                                      " SET Songs = '" + currSongs +
-                                     "' WHERE Id = " + (song.AlbumId.Value - 1);
+                                     "' WHERE Id = " + (song.AlbumId.Value);
 
                     //updating the database.
                     _context.Database.ExecuteSqlCommand(thisSql); 

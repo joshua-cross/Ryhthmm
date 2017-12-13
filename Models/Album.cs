@@ -30,5 +30,8 @@ namespace Rythmm.Models
 
         //a string which will contain all the songs in a album, will be seriaslised / delserialized.
         public string Songs { get; set; }
+
+        //list of strings for the songs after being deserialized
+        public List<String> SongList { get; set; }
     }
 }

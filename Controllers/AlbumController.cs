@@ -40,6 +40,36 @@ namespace Rythmm.Controllers
         public ActionResult Edit(int id)
         {
             var album = _context.Album.SingleOrDefault(a => a.Id == id);
+
+            album.SongList = new List<string>();
+
+            //int that will count where the previous / is.
+            int letterCount = 0;
+
+            string theSong = "";
+            //only do the following if the album has songs in it.
+            if (album.Songs != null)
+            {
+                for (int i = 0; i < album.Songs.Length; i = i + 1)
+                {
+                    char letter = album.Songs[i];
+
+                    //if the letter is not the end terminator then ammend the string
+                    if (letter != '/')
+                    {
+                        theSong += letter;
+                    }
+                    //else empty the song and add to the list.
+                    else
+                    {
+                        album.SongList.Add(theSong);
+                        theSong = "";
+                    }
+                }
+            }
+
+
+
             return View("Edit", album);
         }
 
