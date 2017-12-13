@@ -36,6 +36,13 @@ namespace Rythmm.Controllers
             return View("Index", viewModel);
         }
 
+        [Route("Album/Edit/{id}")]
+        public ActionResult Edit(int id)
+        {
+            var album = _context.Album.SingleOrDefault(a => a.Id == id);
+            return View("Edit", album);
+        }
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();

@@ -12,9 +12,8 @@
 @foreach(var album in Model.Albums)
 {
     <tr class="tableBody">
-        <th>@album.Name</th>
-        <th>@Model.Artists.ElementAt(album.ArtistId - 1).Name
-        </th>
+        <th>@Html.ActionLink(@album.Name, "Edit", "Album", new { id = @album.Id }, null)</th>
+        <th>@Model.Artists.ElementAt(album.ArtistId - 1).Name</th>
     </tr>
 }
 </table>
