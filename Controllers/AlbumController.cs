@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Rythmm.Models;
+using Rythmm.ViewModels;
 using System.Data.SqlClient;
 namespace Rythmm.Controllers
 {
@@ -22,9 +23,17 @@ namespace Rythmm.Controllers
         [Route("Album")]
         public ActionResult Index()
         {
-            var Albums = _context.Album.ToList();
+            var albums = _context.Album.ToList();
+            var artists = _context.Artist.ToList();
 
-            return View("Index", Albums);
+            //creating a view model with all the artists and albums
+            AlbumIndexViewModel viewModel = new AlbumIndexViewModel()
+            {
+                Artists = artists,
+                Albums = albums
+            };
+
+            return View("Index", viewModel);
         }
 
         protected override void Dispose(bool disposing)
